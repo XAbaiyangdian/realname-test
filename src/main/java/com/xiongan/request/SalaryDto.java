@@ -11,35 +11,35 @@ import java.util.Map;
 public class SalaryDto extends BaseSignRequest{
     //项目编码
     private String projectCode;
-    //人员证件号码  AES
+    //人员证件号码  SM4
     private String idCardNumber;
-    //姓名
+    //姓名 SM4
     private String workName;
-    //应发工资 单位元
+    //应发工资 单位元 SM4
     private String totalPayAmount;
-    //实发工资 单位元
+    //实发工资 单位元 SM4
     private String actualAmount;
-    //工资发放月份。格式 yyyy-MM-dd ,默认传月份的第一天
+    //工资发放月份。格式 yyyy-MM-dd ,默认传月份的第一天 SM4
     private String payMonth;
-    //工资实际发放日期。格式 yyyy-MM-dd
+    //工资实际发放日期。格式 yyyy-MM-dd SM4
     private String balanceDate;
-    //接收工资银行卡号 AES
+    //接收工资银行卡号 SM4
     private String receiveBankAccount;
-    //接收工资银行编码 参考 银行代码字典表
+    //接收工资银行编码 参考 银行代码字典表 SM4
     private String receiveBankCode;
-    //接收工资卡号开户银行名称
+    //接收工资卡号开户银行名称 SM4
     private String receiveOpenbankName;
     //工资代发银行卡号 AES
     private String payBankCardNumber;
-    //工资代发银行代码, 参考 银行代码字典表
+    //工资代发银行代码, 参考 银行代码字典表 SM4
     private String payBankCode;
-    //工资代发开户行名称
+    //工资代发开户行名称 SM4
     private String payBankName;
     //是否为补发（0否1是）
     private Integer isBackPay;
     //补发月份格式 yyyy-MM-dd如果是补发，此字段必填 (非签名字段)
     private String backPayMonth;
-    //第三方工资编号
+    //第三方工资编号 SM4
     private String thirdPayRollCode;
 
     public Map<String, Object> toSignMap() {

@@ -23,22 +23,22 @@ public class PushTest {
         String url = "http://localhost:8001/api/receiver/open/bank/saveSalary";
 
         SalaryDto salaryDto = new SalaryDto();
-        salaryDto.setProjectCode("ProjectCode");
-        salaryDto.setIdCardNumber(SM4Utils.encryptToBase64("IdCardNumber", encryptKey));
-        salaryDto.setWorkName("WorkName");
-        salaryDto.setTotalPayAmount("TotalPayAmount");
-        salaryDto.setActualAmount("ActualAmount");
-        salaryDto.setPayMonth("PayMonth");
-        salaryDto.setBalanceDate("BalanceDate");
-        salaryDto.setReceiveBankAccount(SM4Utils.encryptToBase64("ReceiveBankAccount", encryptKey));
-        salaryDto.setReceiveBankCode("ReceiveBankCode");
-        salaryDto.setReceiveOpenbankName("ReceiveOpenbankName");
-        salaryDto.setPayBankCardNumber(SM4Utils.encryptToBase64("PayBankCardNumber", encryptKey));
-        salaryDto.setPayBankCode("PayBankCode");
-        salaryDto.setPayBankName("PayBankName");
-        salaryDto.setIsBackPay(1);
-        salaryDto.setBackPayMonth("BackPayMonth");
-        salaryDto.setThirdPayRollCode("ThirdPayRollCode");
+        salaryDto.setProjectCode("110110011");
+        salaryDto.setIdCardNumber(SM4Utils.encryptToBase64("142700000000001111", encryptKey));
+        salaryDto.setWorkName(SM4Utils.encryptToBase64("张三", encryptKey));
+        salaryDto.setTotalPayAmount(SM4Utils.encryptToBase64("100", encryptKey));
+        salaryDto.setActualAmount(SM4Utils.encryptToBase64("100", encryptKey));
+        salaryDto.setPayMonth(SM4Utils.encryptToBase64("2022-02-01", encryptKey));
+        salaryDto.setBalanceDate(SM4Utils.encryptToBase64("2022-02-01", encryptKey));
+        salaryDto.setReceiveBankAccount(SM4Utils.encryptToBase64("6217000000000000001", encryptKey));
+        salaryDto.setReceiveBankCode(SM4Utils.encryptToBase64("104", encryptKey));
+        salaryDto.setReceiveOpenbankName(SM4Utils.encryptToBase64("中国银行", encryptKey));
+        salaryDto.setPayBankCardNumber(SM4Utils.encryptToBase64("6217000000000000002", encryptKey));
+        salaryDto.setPayBankCode(SM4Utils.encryptToBase64("104", encryptKey));
+        salaryDto.setPayBankName(SM4Utils.encryptToBase64("中国银行", encryptKey));
+        salaryDto.setIsBackPay(0);
+//        salaryDto.setBackPayMonth("BackPayMonth");
+        salaryDto.setThirdPayRollCode(SM4Utils.encryptToBase64("110220011", encryptKey));
 
         salaryDto.setTimestamp(System.currentTimeMillis());
         salaryDto.setClientCode(clientCode);
@@ -55,26 +55,26 @@ public class PushTest {
         String url = "http://localhost:8001/api/receiver/open/bank/saveSalaryAccount";
 
         SalaryAccountDto salaryAccountDto = new SalaryAccountDto();
-        salaryAccountDto.setProjectCode("ProjectCode");
-        salaryAccountDto.setCorpCode("CorpCode");
-        salaryAccountDto.setCorpName("CorpName");
-        salaryAccountDto.setSalaryAccountBankCode("SalaryAccountBankCode");
-        salaryAccountDto.setSalaryAccountBankName("SalaryAccountBankName");
-        salaryAccountDto.setSalaryAccount("SalaryAccount");
-        salaryAccountDto.setSalaryAccountName("SalaryAccountName");
-        salaryAccountDto.setOpenAccountDate("OpenAccountDate");
-        salaryAccountDto.setAccountBalance("AccountBalance");
+        salaryAccountDto.setProjectCode("110110011");
+        salaryAccountDto.setCorpCode(SM4Utils.encryptToBase64("91000000000000", encryptKey));
+        salaryAccountDto.setCorpName(SM4Utils.encryptToBase64("河北科技有限公司", encryptKey));
+        salaryAccountDto.setSalaryAccountBankCode(SM4Utils.encryptToBase64("104", encryptKey));
+        salaryAccountDto.setSalaryAccountBankName(SM4Utils.encryptToBase64("中国银行", encryptKey));
+        salaryAccountDto.setSalaryAccount(SM4Utils.encryptToBase64("6217000000000000001", encryptKey));
+        salaryAccountDto.setSalaryAccountName(SM4Utils.encryptToBase64("xx专户", encryptKey));
+        salaryAccountDto.setOpenAccountDate(SM4Utils.encryptToBase64("2022-01-12", encryptKey));
+        salaryAccountDto.setAccountBalance(SM4Utils.encryptToBase64("100", encryptKey));
 
-        List<AttachmentDto> attachmentDtos = new ArrayList<AttachmentDto>();
+        List<AttachmentDto> attachmentDtos = new ArrayList<>();
 
         AttachmentDto attachmentDto1 = new AttachmentDto();
         attachmentDto1.setAttachmentType(1);
-        attachmentDto1.setAttachmentName("AttachmentName1");
-        attachmentDto1.setAttachmentUrl("AttachmentUrl1");
+        attachmentDto1.setAttachmentName(SM4Utils.encryptToBase64("AttachmentName1", encryptKey));
+        attachmentDto1.setAttachmentUrl(SM4Utils.encryptToBase64("AttachmentUrl1", encryptKey));
         AttachmentDto attachmentDto2 = new AttachmentDto();
         attachmentDto2.setAttachmentType(0);
-        attachmentDto2.setAttachmentName("AttachmentName2");
-        attachmentDto2.setAttachmentUrl("AttachmentUrl2");
+        attachmentDto2.setAttachmentName(SM4Utils.encryptToBase64("AttachmentName2", encryptKey));
+        attachmentDto2.setAttachmentUrl(SM4Utils.encryptToBase64("AttachmentUrl2", encryptKey));
 
         attachmentDtos.add(attachmentDto1);
         attachmentDtos.add(attachmentDto2);
@@ -98,20 +98,20 @@ public class PushTest {
         String url = "http://localhost:8001/api/receiver/open/bank/saveSalaryAccountBill";
 
         SalaryAccountBillDto salaryAccountBillDto = new SalaryAccountBillDto();
-        salaryAccountBillDto.setProjectCode("ProjectCode");
-        salaryAccountBillDto.setSalaryAccount("SalaryAccount");
+        salaryAccountBillDto.setProjectCode("110110011");
+        salaryAccountBillDto.setSalaryAccount(SM4Utils.encryptToBase64("6217000000000000001", encryptKey));
         salaryAccountBillDto.setBillType(1);
-        salaryAccountBillDto.setActionType("ActionType");
-        salaryAccountBillDto.setBillDate("BillDate");
-        salaryAccountBillDto.setBillAmount("BillAmount");
-        salaryAccountBillDto.setAccountBalance("AccountBalance");
-        salaryAccountBillDto.setPayAccountBankCode("PayAccountBankCode");
-        salaryAccountBillDto.setPayAccountBankAccount(SM4Utils.encryptToBase64("PayAccountBankAccount", encryptKey));
-        salaryAccountBillDto.setPayAccountBankName("PayAccountBankName");
-        salaryAccountBillDto.setBatchNumber("BatchNumber");
-        salaryAccountBillDto.setSourceCorpCode("SourceCorpCode");
-        salaryAccountBillDto.setSourceCorpName("SourceCorpName");
-        salaryAccountBillDto.setExcerpt("Excerpt");
+        salaryAccountBillDto.setActionType(1);
+        salaryAccountBillDto.setBillDate(SM4Utils.encryptToBase64("2022-01-02 15:22:33", encryptKey));
+        salaryAccountBillDto.setBillAmount(SM4Utils.encryptToBase64("100", encryptKey));
+        salaryAccountBillDto.setAccountBalance(SM4Utils.encryptToBase64("100", encryptKey));
+        salaryAccountBillDto.setPayAccountBankCode(SM4Utils.encryptToBase64("104", encryptKey));
+        salaryAccountBillDto.setPayAccountBankAccount(SM4Utils.encryptToBase64("6217000000000000001", encryptKey));
+        salaryAccountBillDto.setPayAccountBankName(SM4Utils.encryptToBase64("中国银行", encryptKey));
+        salaryAccountBillDto.setBatchNumber(SM4Utils.encryptToBase64("11011011", encryptKey));
+        salaryAccountBillDto.setSourceCorpCode(SM4Utils.encryptToBase64("91000000000000", encryptKey));
+        salaryAccountBillDto.setSourceCorpName(SM4Utils.encryptToBase64("河北科技有限公司", encryptKey));
+        salaryAccountBillDto.setExcerpt("摘要");
 
         salaryAccountBillDto.setClientCode(clientCode);
         salaryAccountBillDto.setTimestamp(System.currentTimeMillis());

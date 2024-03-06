@@ -12,21 +12,21 @@ import java.util.Map;
 public class SalaryAccountDto extends BaseSignRequest{
     //项目编码
     private String projectCode;
-    //工资专户开户企业统一社会信用代码
+    //工资专户开户企业统一社会信用代码 SM4
     private String corpCode;
-    //企业名称
+    //企业名称 SM4
     private String corpName;
-    //工资专户开户银行代码
+    //工资专户开户银行代码 SM4
     private String salaryAccountBankCode;
-    //工资专户开户银行名称
+    //工资专户开户银行名称 SM4
     private String salaryAccountBankName;
-    //工资专户账号
+    //工资专户账号 SM4
     private String salaryAccount;
-    //工资专户名称
+    //工资专户名称 SM4
     private String salaryAccountName;
-    //开户日期，yyyy-MM-dd
+    //开户日期，yyyy-MM-dd SM4
     private String openAccountDate;
-    //账户余额，单位为元
+    //账户余额，单位为元 SM4
     private String accountBalance;
     //工资专户附件 (非签名字段)
     private List<AttachmentDto> attachments;
