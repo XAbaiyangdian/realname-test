@@ -14,14 +14,14 @@ public class SM3Utils {
     }
     public static byte[] hash(byte[] bytes) {
         //创建 SM3Digest 对象
-        SM3Digest digest = new SM3Digest();
+        SM3Digest sm3 = new SM3Digest();
         //将输入字符串转为字节数组，并使用该字节数组更新摘要对象的内部状态，以便进行计算
-        digest.update(bytes, 0, bytes.length);
+        sm3.update(bytes, 0, bytes.length);
         //创建一个输出字节数组，调用 doFinal 方法完成哈希计算，并将结果存入输出数组
-        byte[] output = new byte[digest.getDigestSize()];
-        digest.doFinal(output, 0);
+        byte[] output = new byte[sm3.getDigestSize()];
+        sm3.doFinal(output, 0);
         //返回摘要字节数组
-        return bytes;
+        return output;
     }
     public static byte[] getBytesUtf8(String str){
         byte[] bytes = null;
