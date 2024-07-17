@@ -7,7 +7,6 @@ import com.xiongan.common.SignUtil;
 import com.xiongan.request.AttachmentDto;
 import com.xiongan.request.SalaryAccountBillDto;
 import com.xiongan.request.SalaryAccountDto;
-import com.xiongan.request.SalaryDto;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -15,38 +14,6 @@ import java.util.List;
 
 public class PushTest {
 
-    @Test
-    public void saveSalaryTest() throws Exception {
-        String clientCode = "";
-        String secretKey = "";
-        String encryptKey = "";
-        String url = "http://localhost:8001/api/receiver/open/bank/saveSalary";
-
-        SalaryDto salaryDto = new SalaryDto();
-        salaryDto.setProjectCode("110110011");
-        salaryDto.setIdCardNumber(SM4Utils.encryptToBase64("142700000000001111", encryptKey));
-        salaryDto.setWorkName(SM4Utils.encryptToBase64("张三", encryptKey));
-        salaryDto.setTotalPayAmount(SM4Utils.encryptToBase64("100", encryptKey));
-        salaryDto.setActualAmount(SM4Utils.encryptToBase64("100", encryptKey));
-        salaryDto.setPayMonth(SM4Utils.encryptToBase64("2022-02-01", encryptKey));
-        salaryDto.setBalanceDate(SM4Utils.encryptToBase64("2022-02-01", encryptKey));
-        salaryDto.setReceiveBankAccount(SM4Utils.encryptToBase64("6217000000000000001", encryptKey));
-        salaryDto.setReceiveBankCode(SM4Utils.encryptToBase64("104", encryptKey));
-        salaryDto.setReceiveOpenbankName(SM4Utils.encryptToBase64("中国银行", encryptKey));
-        salaryDto.setPayBankCardNumber(SM4Utils.encryptToBase64("6217000000000000002", encryptKey));
-        salaryDto.setPayBankCode(SM4Utils.encryptToBase64("104", encryptKey));
-        salaryDto.setPayBankName(SM4Utils.encryptToBase64("中国银行", encryptKey));
-        salaryDto.setIsBackPay(0);
-//        salaryDto.setBackPayMonth("BackPayMonth");
-        salaryDto.setThirdPayRollCode(SM4Utils.encryptToBase64("110220011", encryptKey));
-
-        salaryDto.setTimestamp(System.currentTimeMillis());
-        salaryDto.setClientCode(clientCode);
-        String signature = SignUtil.sign(salaryDto.toSignMap(), secretKey);
-        salaryDto.setSignature(signature);
-        String result = OkHttpClient.post(url, JSON.toJSONString(salaryDto));
-        System.out.println(result);
-    }
     @Test
     public void saveSalaryAccountTest() throws Exception {
         String clientCode = "";
@@ -109,8 +76,8 @@ public class PushTest {
         salaryAccountBillDto.setPayAccountBankAccount(SM4Utils.encryptToBase64("6217000000000000001", encryptKey));
         salaryAccountBillDto.setPayAccountBankName(SM4Utils.encryptToBase64("中国银行", encryptKey));
         salaryAccountBillDto.setBatchNumber(SM4Utils.encryptToBase64("11011011", encryptKey));
-        salaryAccountBillDto.setSourceCorpCode(SM4Utils.encryptToBase64("91000000000000", encryptKey));
-        salaryAccountBillDto.setSourceCorpName(SM4Utils.encryptToBase64("河北科技有限公司", encryptKey));
+        salaryAccountBillDto.setSourceAccountName(SM4Utils.encryptToBase64("来源账号户名", encryptKey));
+        salaryAccountBillDto.setSourceBankAccount(SM4Utils.encryptToBase64("91000000000000", encryptKey));
         salaryAccountBillDto.setExcerpt("摘要");
 
         salaryAccountBillDto.setClientCode(clientCode);

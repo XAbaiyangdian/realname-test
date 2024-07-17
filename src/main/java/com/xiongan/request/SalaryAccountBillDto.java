@@ -26,10 +26,10 @@ public class SalaryAccountBillDto extends BaseSignRequest{
     private String payAccountBankName;
     //账单批次号 SM4
     private String batchNumber;
-    //来源公司统一社会信用代码(当账单类型为收入时必填) SM4
-    private String sourceCorpCode;
-    //来源公司名称(当账单类型为收入时必填) SM4
-    private String sourceCorpName;
+    //来源银行账号(当账单类型为收入时必填)   SM4
+    private String sourceBankAccount;
+    //来源账号户名(当账单类型为收入时必填)   SM4
+    private String sourceAccountName;
     //摘要(最多100字)
     private String excerpt;
 }
